@@ -137,7 +137,11 @@ function appendGrades(data) {
     <th></th>
   </tr>`;
   $('.table').append($table);
+  var sumTotal = 0;
+  var sumScore = 0;
   data.forEach(function(d) {
+    sumTotal += d.total;
+    sumScore += d.score;
     $card =
     `<tr><td>${d.name}</td>
     <td>${d.score}</td>
@@ -148,4 +152,13 @@ function appendGrades(data) {
     <td><button class="btn btn-info edit">Edit</button></tr>`
     $('.table').append($card);
   });
+  var totalGrade = checkLetterGrade(sumScore, sumTotal);
+
+  $total =
+  `<tr><td>Total</td>
+  <td>${sumScore}</td>
+  <td>${sumTotal}</td>
+  <td>${totalGrade}</td>
+  </tr>`;
+  $('.table').append($total);
 }
