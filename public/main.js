@@ -126,7 +126,6 @@ function displayData() {
 
 
 function appendGrades(data) {
-  var total = getTotal;
   $table = `
   <tr>
     <th>Name</th>
